@@ -6,10 +6,10 @@ const promptMarkdownComponents = {
     return <p className="mb-0 leading-snug [&:not(:first-child)]:mt-3">{children}</p>;
   },
   strong({ children }) {
-    return <strong className="font-semibold text-slate-900">{children}</strong>;
+    return <strong className="font-semibold text-slate-100">{children}</strong>;
   },
   em({ children }) {
-    return <em className="italic text-slate-800">{children}</em>;
+    return <em className="italic text-slate-200">{children}</em>;
   },
   ul({ children }) {
     return <ul className="my-3 list-disc space-y-1.5 pl-7 text-left">{children}</ul>;
@@ -22,7 +22,7 @@ const promptMarkdownComponents = {
   },
   pre({ children }) {
     return (
-      <pre className="my-3 overflow-x-auto rounded-lg border border-slate-200 bg-slate-50 p-3 text-left text-base font-normal leading-relaxed text-slate-700 shadow-sm">
+      <pre className="my-3 overflow-x-auto rounded-lg border border-slate-700 bg-slate-900 p-3 text-left text-base font-normal leading-relaxed text-slate-200 shadow-sm">
         {children}
       </pre>
     );
@@ -34,7 +34,7 @@ const promptMarkdownComponents = {
     if (isBlock) {
       return (
         <code
-          className={`block w-full whitespace-pre-wrap font-mono text-sm font-normal text-slate-700 ${className || ""}`}
+          className={`block w-full whitespace-pre-wrap font-mono text-sm font-normal text-slate-200 ${className || ""}`}
           {...props}
         >
           {children}
@@ -43,7 +43,7 @@ const promptMarkdownComponents = {
     }
     return (
       <code
-        className="rounded bg-slate-100 px-1.5 py-0.5 text-[0.92em] font-mono font-normal text-blue-900"
+        className="rounded bg-slate-800 px-1.5 py-0.5 text-[0.92em] font-mono font-normal text-cyan-200"
         {...props}
       >
         {children}
@@ -54,7 +54,7 @@ const promptMarkdownComponents = {
     return (
       <a
         href={href}
-        className="font-medium text-blue-700 underline decoration-blue-300 underline-offset-2"
+        className="font-medium text-cyan-300 underline decoration-cyan-500/50 underline-offset-2"
         target="_blank"
         rel="noreferrer noopener"
       >
@@ -63,16 +63,16 @@ const promptMarkdownComponents = {
     );
   },
   h2({ children }) {
-    return <h2 className="mt-4 mb-2 text-2xl font-semibold text-slate-900 first:mt-0">{children}</h2>;
+    return <h2 className="mt-4 mb-2 text-2xl font-semibold text-slate-100 first:mt-0">{children}</h2>;
   },
   h3({ children }) {
-    return <h3 className="mt-3 mb-1.5 text-xl font-semibold text-slate-900 first:mt-0">{children}</h3>;
+    return <h3 className="mt-3 mb-1.5 text-xl font-semibold text-slate-100 first:mt-0">{children}</h3>;
   },
 };
 
 const game = {
   title: "Java Jeopardy",
-  subtitle: "AP CSA Review Game",
+  subtitle: "AP CSA Review Game - Siddharth M, Anish M, Aarav M, Rakshan S, Ashwin K",
   categories: [
     {
       key: "A",
@@ -391,41 +391,41 @@ export default function JavaJeopardySite() {
     Object.keys(boardKeys).length > 0 && Object.keys(boardKeys).every((key) => used[key] !== false);
 
   const btnBase =
-    "inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/35 focus-visible:ring-offset-2 focus-visible:ring-offset-white disabled:pointer-events-none disabled:opacity-45";
+    "inline-flex items-center justify-center gap-2 rounded-lg px-3.5 py-2 text-sm font-medium transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400/50 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 disabled:pointer-events-none disabled:opacity-45";
 
   const scoreInputClass =
-    "w-full min-w-[3.25rem] rounded-md border border-blue-200/90 bg-white/90 px-2 py-1 text-sm font-semibold tabular-nums text-slate-800 outline-none transition focus:border-blue-500 focus:ring-1 focus:ring-blue-400/35 jeopardy-score [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none";
+    "w-full min-w-[3.25rem] rounded-md border border-cyan-500/40 bg-slate-800/95 px-2 py-1 text-sm font-semibold tabular-nums text-slate-100 outline-none transition focus:border-cyan-400 focus:ring-1 focus:ring-cyan-400/35 jeopardy-score [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none";
 
   const teamNameInputClass =
-    "team-name-inline w-full min-w-0 cursor-text bg-transparent border-0 p-0 m-0 text-center text-[10px] font-semibold uppercase tracking-wide text-slate-600 placeholder:text-slate-400 focus:ring-0 focus:outline-none selection:bg-blue-100";
+    "team-name-inline w-full min-w-0 cursor-text bg-transparent border-0 p-0 m-0 text-center text-[10px] font-semibold uppercase tracking-wide text-slate-300 placeholder:text-slate-500 focus:ring-0 focus:outline-none selection:bg-cyan-500/30";
 
   return (
-    <div className="min-h-screen bg-slate-100 bg-[radial-gradient(ellipse_100%_55%_at_50%_-8%,rgba(191,219,254,0.55),transparent_58%)] text-slate-800 pb-24 font-sans">
+    <div className="min-h-screen bg-slate-950 bg-[radial-gradient(ellipse_100%_55%_at_50%_-8%,rgba(14,116,144,0.42),transparent_58%)] text-slate-100 pb-24 font-sans">
       <div className="mx-auto max-w-7xl p-4 md:p-6">
         <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-6">
           <div>
-            <p className="text-xs text-slate-500 mb-1">{game.subtitle}</p>
-            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-slate-900">{game.title}</h1>
+            <p className="text-xs text-slate-400 mb-1">{game.subtitle}</p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight text-slate-50">{game.title}</h1>
           </div>
           <div className="flex flex-wrap gap-2">
             <button
               type="button"
               onClick={resetBoard}
-              className={`${btnBase} bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 shadow-sm`}
+              className={`${btnBase} bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 shadow-sm`}
             >
               Reset board
             </button>
             <button
               type="button"
               onClick={resetScores}
-              className={`${btnBase} bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 shadow-sm`}
+              className={`${btnBase} bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 shadow-sm`}
             >
               Reset scores
             </button>
             <button
               type="button"
               onClick={() => setShowChecks((prev) => !prev)}
-              className={`${btnBase} bg-white text-slate-700 hover:bg-slate-50 border border-slate-200 shadow-sm`}
+              className={`${btnBase} bg-slate-800 text-slate-100 hover:bg-slate-700 border border-slate-700 shadow-sm`}
             >
               {showChecks ? "Hide checks" : "Show checks"}
             </button>
@@ -433,10 +433,10 @@ export default function JavaJeopardySite() {
         </div>
 
         {showChecks ? (
-          <div className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+          <div className="mb-6 rounded-xl border border-slate-700 bg-slate-900/85 p-4 shadow-sm">
             <div className="flex items-center justify-between gap-3 mb-3">
-              <h2 className="text-base font-semibold text-slate-800">Data checks</h2>
-              <div className="text-xs tabular-nums text-slate-500">
+              <h2 className="text-base font-semibold text-slate-100">Data checks</h2>
+              <div className="text-xs tabular-nums text-slate-400">
                 {passedChecks} / {dataChecks.length} passing
               </div>
             </div>
@@ -444,27 +444,27 @@ export default function JavaJeopardySite() {
               {dataChecks.map((check) => (
                 <div
                   key={check.name}
-                  className={`rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 border-l-2 ${
+                  className={`rounded-lg border border-slate-700 bg-slate-800/80 px-3 py-2 border-l-2 ${
                     check.pass ? "border-l-emerald-500/70" : "border-l-rose-500/70"
                   }`}
                 >
-                  <div className="font-medium text-slate-700 flex items-center gap-2">
-                    <span className="text-slate-500">{check.pass ? "OK" : "—"}</span>
+                  <div className="font-medium text-slate-200 flex items-center gap-2">
+                    <span className="text-slate-400">{check.pass ? "OK" : "—"}</span>
                     <span>{check.name}</span>
                   </div>
-                  <div className="mt-1 text-xs text-slate-500">{check.details}</div>
+                  <div className="mt-1 text-xs text-slate-400">{check.details}</div>
                 </div>
               ))}
             </div>
           </div>
         ) : null}
 
-        <div className="rounded-2xl border border-blue-200/80 bg-blue-50/90 ring-1 ring-blue-100 p-2 md:p-2.5 space-y-2 md:space-y-2.5 shadow-sm">
+        <div className="rounded-2xl border border-slate-600/70 bg-slate-900/90 ring-1 ring-slate-500/45 p-2 md:p-2.5 space-y-2 md:space-y-2.5 shadow-xl shadow-slate-950/45">
           <div className="grid grid-cols-6 gap-2 md:gap-2.5">
             {game.categories.map((category) => (
               <div
                 key={category.key}
-                className="bg-blue-700 min-h-[80px] md:min-h-[92px] px-2 md:px-2.5 py-2.5 flex items-center justify-center text-center rounded-xl border border-blue-600/80 shadow-sm shadow-slate-900/10"
+                className="bg-blue-800 min-h-[80px] md:min-h-[92px] px-2 md:px-2.5 py-2.5 flex items-center justify-center text-center rounded-xl border border-cyan-400/35 shadow-md shadow-cyan-900/40"
               >
                 <div>
                   <div className="text-xs text-blue-200/90 mb-0.5">{category.key}</div>
@@ -484,9 +484,9 @@ export default function JavaJeopardySite() {
 
                 const usedTone =
                   outcome === "correct"
-                    ? "bg-emerald-100/95 ring-1 ring-emerald-300/60 shadow-inner border-emerald-300/70 cursor-not-allowed"
+                    ? "bg-emerald-900/30 ring-1 ring-emerald-400/28 shadow-inner border-emerald-400/35 cursor-not-allowed"
                     : outcome === "wrong"
-                      ? "bg-rose-100/95 ring-1 ring-rose-300/60 shadow-inner border-rose-300/70 cursor-not-allowed"
+                      ? "bg-rose-900/30 ring-1 ring-rose-400/28 shadow-inner border-rose-400/35 cursor-not-allowed"
                       : "";
 
                 return (
@@ -498,7 +498,7 @@ export default function JavaJeopardySite() {
                     className={`min-h-[68px] md:min-h-[80px] rounded-xl border flex flex-col items-center justify-center text-center px-1.5 transition-all duration-150 ${
                       isUsed
                         ? usedTone
-                        : "bg-blue-600 text-white border-blue-500/70 shadow-md shadow-slate-900/15 hover:bg-blue-500 hover:shadow-lg hover:shadow-slate-900/12 hover:-translate-y-0.5"
+                        : "bg-blue-700 text-white border-cyan-300/45 shadow-md shadow-cyan-950/40 hover:bg-blue-600 hover:shadow-[0_0_18px_rgba(34,211,238,0.25)] hover:-translate-y-0.5"
                     }`}
                     onContextMenu={(event) => {
                       event.preventDefault();
@@ -510,8 +510,8 @@ export default function JavaJeopardySite() {
                       className={`font-semibold text-base md:text-xl tabular-nums ${
                         isUsed
                           ? outcome === "correct"
-                            ? "text-emerald-700/45 blur-[2.5px]"
-                            : "text-rose-700/45 blur-[2.5px]"
+                            ? "text-emerald-300/35 blur-[2.5px]"
+                            : "text-rose-300/35 blur-[2.5px]"
                           : "text-white"
                       }`}
                     >
@@ -528,9 +528,9 @@ export default function JavaJeopardySite() {
         </div>
 
         {allDone ? (
-          <div className="mt-5 rounded-xl border border-slate-200 bg-white px-4 py-4 text-center shadow-sm">
-            <div className="text-lg font-semibold text-slate-800">Board complete</div>
-            <div className="text-slate-500 mt-1 text-sm">All clues have been played.</div>
+          <div className="mt-5 rounded-xl border border-slate-700 bg-slate-900 px-4 py-4 text-center shadow-sm">
+            <div className="text-lg font-semibold text-slate-100">Board complete</div>
+            <div className="text-slate-400 mt-1 text-sm">All clues have been played.</div>
           </div>
         ) : null}
       </div>
@@ -540,7 +540,7 @@ export default function JavaJeopardySite() {
           {teams.map((team, index) => (
             <div
               key={`team-bar-${index}`}
-              className="flex min-h-[3.25rem] w-[6.75rem] shrink-0 sm:w-[7.25rem] flex-col items-stretch justify-center gap-1 rounded-2xl border border-blue-400/65 bg-white/95 px-2 py-2"
+              className="flex min-h-[3.25rem] w-[6.75rem] shrink-0 sm:w-[7.25rem] flex-col items-stretch justify-center gap-1 rounded-2xl border border-cyan-500/45 bg-slate-900/95 px-2 py-2 shadow-lg shadow-cyan-950/35"
             >
               <input
                 type="text"
@@ -566,13 +566,13 @@ export default function JavaJeopardySite() {
 
       {selected ? (
         <div
-          className="fixed inset-0 z-50 bg-slate-900/35 backdrop-blur-[2px] flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 bg-black/60 backdrop-blur-[3px] flex items-center justify-center p-4"
           role="dialog"
           aria-modal="true"
           aria-labelledby="clue-modal-title"
         >
-          <div className="jeopardy-modal-panel w-full max-w-5xl max-h-[90vh] rounded-xl border border-slate-200 bg-white overflow-hidden flex flex-col shadow-xl shadow-slate-900/10">
-            <div className="px-4 md:px-5 py-3 bg-blue-700 flex-shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-blue-600/50">
+          <div className="jeopardy-modal-panel w-full max-w-5xl max-h-[90vh] rounded-xl border border-slate-700 bg-slate-900 overflow-hidden flex flex-col shadow-xl shadow-black/30">
+            <div className="px-4 md:px-5 py-3 bg-blue-900 flex-shrink-0 flex flex-col md:flex-row md:items-center md:justify-between gap-3 border-b border-cyan-500/35">
               <div className="min-w-0">
                 <div className="text-xs text-blue-100/90">
                   {selected.catKey} · ${selected.value}
@@ -585,7 +585,7 @@ export default function JavaJeopardySite() {
                 <button
                   type="button"
                   onClick={() => setShowAnswer((prev) => !prev)}
-                  className={`${btnBase} bg-white text-blue-800 hover:bg-blue-50 border border-blue-100`}
+                  className={`${btnBase} bg-slate-100 text-blue-900 hover:bg-white border border-slate-100`}
                 >
                   {showAnswer ? "Hide answer" : "Show answer"}
                 </button>
@@ -606,35 +606,35 @@ export default function JavaJeopardySite() {
                 <button
                   type="button"
                   onClick={closeClue}
-                  className={`${btnBase} bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200`}
+                  className={`${btnBase} bg-slate-700 text-slate-100 hover:bg-slate-600 border border-slate-600`}
                 >
                   Close
                 </button>
               </div>
             </div>
 
-            <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 bg-slate-50/80">
-              <div className="rounded-lg bg-white border border-slate-200 p-4 shadow-sm">
-                <div className="text-xs text-blue-600/80 mb-2">Code</div>
-                <pre className="whitespace-pre-wrap text-sm leading-relaxed text-slate-600 font-mono overflow-x-auto">
+            <div className="flex-1 overflow-y-auto p-4 md:p-6 space-y-4 bg-slate-950/80">
+              <div className="rounded-lg bg-slate-900 border border-slate-700 p-4 shadow-sm">
+                <div className="text-xs text-cyan-300/80 mb-2">Code</div>
+                <pre className="whitespace-pre-wrap text-sm leading-relaxed text-slate-300 font-mono overflow-x-auto">
                   {selected.code}
                 </pre>
               </div>
 
-              <div className="rounded-lg bg-white border border-slate-200 p-4 md:p-5 shadow-sm">
-                <div className="text-xs text-blue-600/80 mb-2">Prompt</div>
-                <div className="prompt-markdown max-w-none text-lg md:text-2xl font-medium leading-snug text-slate-800">
+              <div className="rounded-lg bg-slate-900 border border-slate-700 p-4 md:p-5 shadow-sm">
+                <div className="text-xs text-cyan-300/80 mb-2">Prompt</div>
+                <div className="prompt-markdown max-w-none text-lg md:text-2xl font-medium leading-snug text-slate-100">
                   <ReactMarkdown components={promptMarkdownComponents}>{selected.question}</ReactMarkdown>
                 </div>
               </div>
 
               {showAnswer ? (
-                <div className="rounded-lg bg-blue-50 border border-blue-200 p-4 md:p-5 shadow-sm">
-                  <div className="text-xs text-blue-700/90 mb-1.5">Answer</div>
-                  <div className="text-xl md:text-3xl font-medium text-slate-900 leading-snug">{selected.answer}</div>
+                <div className="rounded-lg bg-blue-950/40 border border-cyan-500/35 p-4 md:p-5 shadow-sm">
+                  <div className="text-xs text-cyan-300/90 mb-1.5">Answer</div>
+                  <div className="text-xl md:text-3xl font-medium text-slate-50 leading-snug">{selected.answer}</div>
                 </div>
               ) : (
-                <div className="rounded-lg border border-dashed border-slate-300 bg-white p-5 text-slate-400 text-center text-sm">
+                <div className="rounded-lg border border-dashed border-slate-700 bg-slate-900 p-5 text-slate-500 text-center text-sm">
                   Answer hidden
                 </div>
               )}

@@ -8,14 +8,14 @@
     <link rel="apple-touch-icon" href="/EECSLogo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
             fontFamily: {
-              sans: ['"DM Sans"', "system-ui", "sans-serif"],
+              sans: ['"Space Grotesk"', "system-ui", "sans-serif"],
               mono: ['"JetBrains Mono"', "ui-monospace", "monospace"],
             },
             boxShadow: {
@@ -47,6 +47,30 @@
       input.jeopardy-score {
         -moz-appearance: textfield;
         appearance: textfield;
+      }
+      /* Global dark scrollbars */
+      html {
+        scrollbar-color: rgba(100, 116, 139, 0.9) rgba(15, 23, 42, 0.85);
+        scrollbar-width: thin;
+      }
+      *::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+      *::-webkit-scrollbar-track {
+        background: rgba(15, 23, 42, 0.82);
+        border-radius: 999px;
+      }
+      *::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, rgba(100, 116, 139, 0.95), rgba(71, 85, 105, 0.95));
+        border: 2px solid rgba(15, 23, 42, 0.9);
+        border-radius: 999px;
+      }
+      *::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(180deg, rgba(148, 163, 184, 0.95), rgba(100, 116, 139, 0.95));
+      }
+      *::-webkit-scrollbar-corner {
+        background: rgba(15, 23, 42, 0.82);
       }
     </style>
   </head>
